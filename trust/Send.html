@@ -1,0 +1,15 @@
+{{ block title }}Tu decisión - Ronda {{ player.round_number }} {{ endblock }}
+{{ block content }}
+
+<p>
+    Eres el {{ C.FM_ROLE }}. Ahora cuentas con {{C.ENDOWMENT}}. ¿Cuánto deseas enviarle al {{ C.SM_ROLE }}?
+    </p>
+
+    {{ formfields }}
+    <p>
+    {{ next_button }}
+    </p>
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}

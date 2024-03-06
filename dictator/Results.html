@@ -1,0 +1,15 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+    <p>
+
+        {{ if player.id_in_group == 1 }}
+            You are {{C.DICTATOR_ROLE}} and decided to keep <strong>{{ group.kept }}</strong> for yourself.
+        {{ else }}
+            You are {{C.RECIPIENT_ROLE}} and {{C.DICTATOR_ROLE}} decided to keep <strong>{{ group.kept }}</strong>, so
+            you got <strong>{{ offer }}</strong>.
+        {{ endif }}
+
+        {{ next_button }}
+    </p>
+    {{ include_sibling 'instructions.html' }}
+{{ endblock }}

@@ -1,0 +1,26 @@
+{{ block title }}<center>Encuesta 2</center>{{ endblock }}
+{{ block content }}
+<center>
+<div class="card bg-light m-3">
+    <div class="card-body">
+    <h4>
+        Por favor, responda las siguientes preguntas:
+    </h4>
+
+    {{ if player.ocup == 'estu' }}
+         <h2>
+            ¿En qué universidad estudias?
+        </h2>
+        {{ formfields }}
+    {{ else }}
+        <h2>
+            ¿En qué universidad estudiaste?
+        </h2>
+        {{ formfields }}
+    {{ endif }}
+
+    {{ next_button }} </center>
+
+</div>
+</div>
+{{ endblock }}

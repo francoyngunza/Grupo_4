@@ -1,0 +1,54 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+<div class="card bg-light m-3">
+<div class="card-body">
+    <p>
+        You started with an endowment of {{ C.ENDOWMENT }},
+        of which you contributed {{ player.contribution }}.
+        Your group contributed {{ group.total_contribution }},
+        resulting in an individual share of {{ group.individual_share }}.
+        Your profit is therefore {{ player.payoff }}.
+    </p>
+</div>
+</div>
+
+<style>
+        table, th, td{
+        border:1px solid black;
+    }
+</style>
+<body>
+
+<center>
+<table style="width:50%"> 
+    <tr>
+        <th>
+            Tu contribución
+        </th>
+        <td>
+            {{ player.contribution }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Contribución total
+        </th>
+        <td>
+            {{ group.total_contribution }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Tu ganancia
+        </th>
+        <td>
+            {{ player.payoff }}
+        </td>
+    </tr>
+</table>
+</center>
+
+
+    {{ next_button }}
+
+{{ endblock }}

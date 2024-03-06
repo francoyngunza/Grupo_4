@@ -1,0 +1,138 @@
+{{ block title }}Resultados - Ronda {{ player.round_number }} {{ endblock }}
+{{ block content }}
+
+    {{ if player.id_in_group == 1 }}
+        <p>
+            Escogiste enviarle al {{ C.SM_ROLE }} un monto de {{ group.sent_amount }}.
+            El {{ C.SM_ROLE }} te retornó {{ group.sent_back_amount }}.
+        </p>
+        <p>
+            Tu dotación inicial fue de {{ C.ENDOWMENT }},
+            escogiste enviar {{ group.sent_amount }},
+            recibiste {{ group.sent_back_amount }}
+            Por lo tanto, ahora cuentas con:
+            {{ C.ENDOWMENT }}-{{ group.sent_amount }}+{{ group.sent_back_amount }}=<strong>{{ player.payoff }}</strong>
+        </p>
+    {{ else }}
+        <p>
+            El {{ C.FM_ROLE }} te envió {{ group.sent_amount }}.
+            Dicho monto fue triplicado. Entonces, recibiste en total {{ tripled_amount }}.
+            Quisiste retornar {{ group.sent_back_amount }}.
+        </p>
+        <p>
+            Recibiste {{ tripled_amount }},
+            escogiste retornar {{ group.sent_back_amount }}
+            Por lo tanto, ahora cuentas con:
+            ({{ tripled_amount }})-({{ group.sent_back_amount }})=<strong>{{ player.payoff }}</strong>
+        </p>
+        .
+    {{ endif }}
+
+
+    {{ if player.id_in_group == 1 }}
+    <style>
+        table, th, td{
+        border:1px solid black;
+    }
+    </style>
+    <body>
+
+    <center>
+    <table style="width:50%"> 
+        <tr>
+            <th>
+                Monto inicial
+            </th>
+            <td>
+                {{ C.ENDOWMENT }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Decidiste enviar al {{C.SM_ROLE}}
+            </th>
+            <td>
+                {{ group.sent_amount }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Recibiste del {{C.SM_ROLE}}
+            </th>
+            <td>
+                {{ group.sent_back_amount }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Ganancia
+            </th>
+            <td>
+                <strong>{{ player.payoff }}</strong>
+            </td>
+        </tr>
+    </table>
+    </center>
+
+
+{{ else }}
+
+<style>
+    table, th, td{
+    border:1px solid black;
+}
+</style>
+<body>
+
+<center>
+<table style="width:50%"> 
+    <tr>
+        <th>
+            Recibiste del {{C.FM_ROLE}}
+        </th>
+        <td>
+            {{ group.sent_amount }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Monto triplicado
+        </th>
+        <td>
+            {{ tripled_amount }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Retornaste al {{C.FM_ROLE}}
+        </th>
+        <td>
+            {{ group.sent_back_amount }}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Ganancia
+        </th>
+        <td>
+            <strong>{{ player.payoff }}</strong>
+        </td>
+    </tr>
+</table>
+</center>
+
+
+{{ endif }}
+
+
+
+  
+
+
+
+    
+    <p>{{ next_button }}</p>
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}

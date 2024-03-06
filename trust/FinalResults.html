@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Resultado Final</h2>
+                <p>Recibiste un monto igual a uno de los tres montos finales de cada ronda jugada elegida aleatoriamente.</p>
+
+                <p>El monto obtenido aleatoriamente es de: {{ final_payoff }}</p>
+                <!-- Puedes agregar más información aquí según sea necesario -->
+            </div>
+        </div>
+    </div>
+
+    {{ next_button }}
+
+
+    
+{% endblock %}
+

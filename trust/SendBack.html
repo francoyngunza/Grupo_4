@@ -1,0 +1,15 @@
+{{ block title }}Tu decisión - Ronda {{ player.round_number }}  {{ endblock }}
+{{ block content }}
+    <p>
+        Eres el {{ C.SM_ROLE }}.
+        El {{ C.FM_ROLE }} te envió {{ group.sent_amount }} y recibiste {{ tripled_amount }}.
+        Ahora cuentas con {{ tripled_amount }}.
+        ¿Cuánto quisieras retornarle al {{ C.FM_ROLE }}?
+    </p>
+
+
+    {{ formfields }}
+    <p>{{ next_button }}</p>
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}
